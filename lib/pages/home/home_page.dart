@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'file:///D:/dev/hours_tracker/lib/blocs/theme/theme_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hours_tracker/blocs/theme/theme_cubit.dart';
 import 'package:hours_tracker/resources/app_theme.dart';
 
 class HomePage extends StatefulWidget {
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -19,19 +18,17 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Home page"),
             Switch(
               value: isDarkMode,
               onChanged: (value) {
-                  isDarkMode = value;
-                  setState(() {
-                    if (isDarkMode) {
-                      context.read<ThemeCubit>().changeTheme(AppTheme.DarkMode);
-                    } else {
-                      context.read<ThemeCubit>().changeTheme(AppTheme.LightMode);
-                    }
-                  });
-
+                isDarkMode = value;
+                setState(() {
+                  if (isDarkMode) {
+                    context.read<ThemeCubit>().changeTheme(AppTheme.DarkMode);
+                  } else {
+                    context.read<ThemeCubit>().changeTheme(AppTheme.LightMode);
+                  }
+                });
               },
             ),
           ],
