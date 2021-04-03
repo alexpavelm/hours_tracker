@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
-enum AppTheme {
-  LightMode,
-  DarkMode
-}
+enum AppTheme { LightMode, DarkMode }
 
 final appThemeData = {
-  AppTheme.LightMode : ThemeData(
+  AppTheme.LightMode: ThemeData(
     brightness: Brightness.light,
-    primaryColor: Colors.green),
-  AppTheme.DarkMode : ThemeData(
-      brightness: Brightness.dark,
+    primaryColor: Colors.green,
+  ),
+  AppTheme.DarkMode: ThemeData(
+    brightness: Brightness.dark,
   ),
 };
