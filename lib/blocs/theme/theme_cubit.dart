@@ -4,7 +4,7 @@ import 'package:hours_tracker/resources/app_theme.dart';
 
 class ThemeCubit extends Cubit<ThemeData> {
 
-  ThemeCubit() : super(appThemeData[AppTheme.LightMode]);
+  ThemeCubit() : super(appThemeData[AppTheme.lightMode]!);
 
-  void changeTheme(AppTheme theme) => emit(appThemeData[theme]);
+  void changeTheme(AppTheme theme) => emit(appThemeData[theme]!);
 }
