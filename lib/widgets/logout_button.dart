@@ -4,14 +4,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:formz/formz.dart';
 import 'package:hours_tracker/blocs/authentication/authentication_bloc.dart';
 import 'package:hours_tracker/blocs/login/login_cubit.dart';
+import 'package:hours_tracker/routes.dart';
 
 class LogoutButton extends StatelessWidget {
+  final bool isLoggedIn;
+
+  const LogoutButton({Key? key, required this.isLoggedIn}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context
+      onTap: () => isLoggedIn ? context
           .read<AuthenticationBloc>()
-          .add(AuthenticationLogoutRequested()),
+          .add(AuthenticationLogoutRequested()) : Routes.sailor(Routes.login),
       child: Container(
         height: 120.w,
         width: 800.w,
@@ -21,7 +26,7 @@ class LogoutButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            "Logout",
+            isLoggedIn ? "Logout" : "Login",
             style: Theme.of(context).textTheme.button,
           ),
         ),

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum AppTheme { lightMode, darkMode }
 
-final appThemeData = {
+Map<AppTheme, ThemeData> appThemeData = {
   AppTheme.lightMode: ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.green.shade200,
     primaryColor: Colors.green,
     buttonColor: Colors.green,
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       button: TextStyle(
         color: Colors.white,
-        fontSize: 15,
+        fontSize: 40.w,
       ),
       headline1: TextStyle(
         color: Colors.green,
-        fontSize: 35,
+        fontSize: 80.w,
       )
     )
   ),

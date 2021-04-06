@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget hSpace(double space) {
   return SizedBox(
-    width: space.w,
+    width: space,
   );
 }
 
 Widget vSpace(double space) {
   return SizedBox(
-    height: space.w,
+    height: space,
   );
 }

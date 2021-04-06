@@ -24,6 +24,8 @@ dependencies:
   firebase_core: ^1.0.2
   formz: ^0.4.0-nullsafety.0
   pedantic: ^1.9.0
+  sailor: ^0.7.1
+
   authentication_repository:
     path: packages/repositories/authentication_repository
 

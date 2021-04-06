@@ -61,7 +61,7 @@ class _LoginViewState extends State<LoginView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         EmailInputField(controller: emailController),
-                        vSpace(20),
+                        vSpace(20.w),
                         PasswordInputField(
                           controller: passwordController,
                         ),
@@ -77,7 +77,7 @@ class _LoginViewState extends State<LoginView> {
                 ],
               ),
             ),
-            vSpace(50),
+            vSpace(50.w),
             GoogleLoginButton(),
           ],
         ),

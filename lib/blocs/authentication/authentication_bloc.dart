@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hours_tracker/routes.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:pedantic/pedantic.dart';
@@ -32,7 +33,8 @@ class AuthenticationBloc
     if (event is AuthenticationUserChanged) {
       yield _mapAuthenticationUserChangedToState(event);
     } else if (event is AuthenticationLogoutRequested) {
-      unawaited(_authenticationRepository.logOut());
+      await _authenticationRepository.logOut();
+      Routes.sailor(Routes.login);
     }
   }
 
@@ -45,8 +47,11 @@ class AuthenticationBloc
   AuthenticationState _mapAuthenticationUserChangedToState(
     AuthenticationUserChanged event,
   ) {
-    return event.user != User.empty
-        ? AuthenticationState.authenticated(event.user)
-        : const AuthenticationState.unauthenticated();
+    if (event.user != User.empty) {
+      Routes.sailor(Routes.home);
+      return AuthenticationState.authenticated(event.user);
+    }
+
+    return const AuthenticationState.unauthenticated();
   }
 }
