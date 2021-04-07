@@ -1,5 +1,6 @@
 import 'package:hours_tracker/pages/home/home_page.dart';
 import 'package:hours_tracker/pages/login/login_page.dart';
+import 'package:hours_tracker/pages/sign_up/sign_up_page.dart';
 import 'package:hours_tracker/pages/splash/splash_page.dart';
 import 'package:sailor/sailor.dart';
 
@@ -43,6 +44,15 @@ class Routes {
         name: login,
         builder: (context, args, params) {
           return LoginPage();
+        },
+      ),
+    );
+
+    sailor.addRoute(
+      SailorRoute(
+        name: signUp,
+        builder: (context, args, params) {
+          return SignUpPage();
         },
       ),
     );

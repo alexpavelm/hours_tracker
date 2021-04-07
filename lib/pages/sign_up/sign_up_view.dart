@@ -2,29 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:hours_tracker/blocs/login/login_cubit.dart';
-import 'package:hours_tracker/pages/login/widgets/google_login_button.dart';
-import 'package:hours_tracker/pages/login/widgets/login_button.dart';
-import 'package:hours_tracker/pages/login/widgets/sign_up_route_button.dart';
+import 'package:hours_tracker/blocs/sign_up/sign_up_cubit.dart';
+import 'package:hours_tracker/pages/sign_up/widgets/login_route_button.dart';
+import 'package:hours_tracker/pages/sign_up/widgets/sign_up_button.dart';
 import 'package:hours_tracker/widgets/base_input_field.dart';
 import 'package:hours_tracker/widgets/common.dart';
+import 'file:///D:/dev/hours_tracker/lib/pages/login/widgets/login_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginView extends StatefulWidget {
+class SignUpView extends StatefulWidget {
   @override
-  _LoginViewState createState() => _LoginViewState();
+  _SignUpViewState createState() => _SignUpViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignUpViewState extends State<SignUpView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state.status == FormzStatus.submissionFailure) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
-              const SnackBar(content: Text('Authentication Failure')),
+              const SnackBar(content: Text('SignUp Failure')),
             );
         }
       },
@@ -33,7 +34,7 @@ class _LoginViewState extends State<LoginView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 800.w,
+              height: 1000.w,
               width: 800.w,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -43,7 +44,7 @@ class _LoginViewState extends State<LoginView> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "Login",
+                    "Sign up",
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   Padding(
@@ -54,22 +55,20 @@ class _LoginViewState extends State<LoginView> {
                         emailInputField(),
                         vSpace(20.w),
                         passwordInputField(),
-                        // GoogleLoginButton(),
-                        // SignUpButton(),
+                        vSpace(20.w),
+                        confirmPasswordInputField(),
                       ],
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.all(30.w),
-                    child: LoginButton(),
+                    child: SignUpButton(),
                   ),
                 ],
               ),
             ),
             vSpace(50.w),
-            GoogleLoginButton(),
-            vSpace(50.w),
-            SignUpRouteButton(),
+            LoginRouteButton(),
           ],
         ),
       ),
@@ -77,12 +76,12 @@ class _LoginViewState extends State<LoginView> {
   }
 
   Widget emailInputField() {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocBuilder<SignUpCubit, SignUpState>(
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return BaseInputField(
           onChanged: (email) =>
-              context.read<LoginCubit>().emailChanged(email),
+              context.read<SignUpCubit>().emailChanged(email),
           labelText: "Enter your email",
           errorText: state.email.invalid ? 'invalid email' : null,
           keyboardType: TextInputType.emailAddress,
@@ -92,15 +91,32 @@ class _LoginViewState extends State<LoginView> {
   }
 
   Widget passwordInputField() {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocBuilder<SignUpCubit, SignUpState>(
       buildWhen: (previous, current) => previous.password != current.password,
+      builder: (context, state) {
+        return SizedBox(
+          child: BaseInputField(
+            onChanged: (password) =>
+                context.read<SignUpCubit>().passwordChanged(password),
+            obscureText: true,
+            labelText: "Enter your password",
+            errorText: state.password.invalid ? 'invalid password' : null,
+          ),
+        );
+      },
+    );
+  }
+
+  Widget confirmPasswordInputField() {
+    return BlocBuilder<SignUpCubit, SignUpState>(
+      buildWhen: (previous, current) => previous.confirmedPassword != current.confirmedPassword,
       builder: (context, state) {
         return BaseInputField(
           onChanged: (password) =>
-              context.read<LoginCubit>().passwordChanged(password),
+              context.read<SignUpCubit>().confirmedPasswordChanged(password),
           obscureText: true,
-          labelText: "Enter your password",
-          errorText: state.password.invalid ? 'invalid password' : null,
+          labelText: "Enter your password again",
+          errorText: state.confirmedPassword.invalid ? 'invalid password' : null,
         );
       },
     );

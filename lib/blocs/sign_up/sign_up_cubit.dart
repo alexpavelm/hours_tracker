@@ -3,9 +3,11 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 import 'package:hours_tracker/models/auth_models.dart';
+import 'package:injectable/injectable.dart';
 
 part 'sign_up_state.dart';
 
+@injectable
 class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit(this._authenticationRepository)
       : super(const SignUpState());
