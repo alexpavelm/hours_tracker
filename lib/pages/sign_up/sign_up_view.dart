@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import 'package:hours_tracker/blocs/login/login_cubit.dart';
 import 'package:hours_tracker/blocs/sign_up/sign_up_cubit.dart';
 import 'package:hours_tracker/pages/sign_up/widgets/login_route_button.dart';
 import 'package:hours_tracker/pages/sign_up/widgets/sign_up_button.dart';
 import 'package:hours_tracker/widgets/base_input_field.dart';
 import 'package:hours_tracker/widgets/common.dart';
-import 'file:///D:/dev/hours_tracker/lib/pages/login/widgets/login_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpView extends StatefulWidget {

@@ -12,7 +12,6 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: BlocProvider(

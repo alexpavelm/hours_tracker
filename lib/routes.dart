@@ -2,6 +2,7 @@ import 'package:hours_tracker/pages/home/home_page.dart';
 import 'package:hours_tracker/pages/login/login_page.dart';
 import 'package:hours_tracker/pages/sign_up/sign_up_page.dart';
 import 'package:hours_tracker/pages/splash/splash_page.dart';
+import 'package:hours_tracker/pages/temp_firebase_page.dart';
 import 'package:sailor/sailor.dart';
 
 // ignore: avoid_classes_with_only_static_members
@@ -19,6 +20,7 @@ class Routes {
   static const String login = 'login';
   static const String signUp = 'signUp';
   static const String splash = 'splash';
+  static const String firebase = 'firebase';
 
   static void createRoutes() {
     sailor.addRoute(
@@ -53,6 +55,15 @@ class Routes {
         name: signUp,
         builder: (context, args, params) {
           return SignUpPage();
+        },
+      ),
+    );
+
+    sailor.addRoute(
+      SailorRoute(
+        name: firebase,
+        builder: (context, args, params) {
+          return TempFirebasePage();
         },
       ),
     );

@@ -1,0 +1,16 @@
+name: record_repository
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cloud_firestore: ^1.0.5
+  rxdart: ^0.26.0
+  equatable: ^2.0.0
+  firebase_core: ^1.0.3
+

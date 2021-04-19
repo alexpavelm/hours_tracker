@@ -15,7 +15,6 @@ class SignUpPage extends StatelessWidget {
       appBar: AppBar(title: const Text('Sign Up')),
       body: Center(
         child: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: BlocProvider(
