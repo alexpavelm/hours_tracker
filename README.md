@@ -1,7 +1,8 @@
 # Hours tracker app done with clean Architecture
 
 This app is currently being developed for the CLean Architecture with BLoC youtube series.
-YouTube Link: https://www.youtube.com/playlist?list=PLfGgPtWUXUJIwzPyJOQt3GrC-kLcpjcus
+
+YouTube Playlist: https://www.youtube.com/playlist?list=PLfGgPtWUXUJIwzPyJOQt3GrC-kLcpjcus
 
 # Episodes (You can click on the images to go to the video)
 <table>
