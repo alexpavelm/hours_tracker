@@ -1,16 +1,34 @@
-# hours_tracker
+# Hours tracker app done with clean Architecture
 
-A new Flutter application.
+This app is currently being developed for the CLean Architecture with BLoC youtube series.
+YouTube Link: https://www.youtube.com/playlist?list=PLfGgPtWUXUJIwzPyJOQt3GrC-kLcpjcus
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Episodes (You can click on the images to go to the video)
+<table>
+  <tbody>
+    <tr>
+      <td class="img-container" width="30%">
+        <a href="https://youtu.be/4-a2-59DrkI"><img src="images/1.png"></a>
+      </td>
+      <td class="content-container">
+        <div><p>This episode contains the setup of the project and some base UI.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="img-container" width="30%">
+        <a href="https://youtu.be/AAceAgesQ3Y"><img src="images/2.png"></a>
+      </td>
+      <td class="content-container">
+        <div><p>I added Routes with Sailor and decided on the flow of the app.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="img-container" width="30%">
+        <a href="https://youtu.be/Tu2cGnYUCWU"><img src="images/3.png"></a>
+      </td>
+      <td class="content-container">
+        <div><p>Added Firebase real time data using BLoC.</p></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
